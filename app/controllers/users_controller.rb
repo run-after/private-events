@@ -14,6 +14,7 @@ class UsersController < ApplicationController
   end
 
   def show
+    @events = Event.where(creator_id: session[:id])
   end
 
   private

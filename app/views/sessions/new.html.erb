@@ -1,5 +1,7 @@
 <h1>Sign In</h1>
-<em><%= flash[:danger] if flash.any? %></em><br><br>
+<% if flash.any? %>
+<em><%= flash[:danger] %></em><br><br>
+<% end %>
 <%= form_with(url: sign_in_path, scope: :session, local: true) do |f| %>
 
   <%= f.label :name %><br>

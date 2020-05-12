@@ -1,4 +1,8 @@
 Hey, bro. Nice to see you.
 <br>
+<h2>Events created</h2>
+<% @events.each do |event| %>
+  <%= event.location %> <br>
+<% end %>
 
 <%= link_to 'Sign out', sign_out_path, :method => :delete %>
