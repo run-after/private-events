@@ -14,11 +14,17 @@ class UsersController < ApplicationController
   end
 
   def show
-    @events = Event.where(creator_id: session[:id])
+    @created_events = Event.where(creator_id: current_user.id)
+    @prev_events = current_user.prev_events
+    @upcoming_events = current_user.upcoming_events
   end
 
   private
     def user_params
       params.require(:user).permit(:name)
+    end
+
+    def current_user
+      User.find(params[:id])
     end
 end

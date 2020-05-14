@@ -10,7 +10,7 @@
   </head>
 
   <body>
-    <h1><%= User.find(session[:id]).name if session[:id] %></h1>
+    <%= render 'layouts/header' %>
     <%= yield %>
   </body>
 </html>

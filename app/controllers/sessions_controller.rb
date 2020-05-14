@@ -6,7 +6,7 @@ class SessionsController < ApplicationController
     @user = User.find_by(name: params[:session][:name])
     if @user
       session[:id] = @user.id
-      redirect_to user_path(@user) ### NOT WORKING
+      redirect_to user_path(@user)
     else
       flash[:danger] = "Username not found"
       render :new

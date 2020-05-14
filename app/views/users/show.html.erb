@@ -1,8 +1,21 @@
-Hey, bro. Nice to see you.
-<br>
 <h2>Events created</h2>
-<% @events.each do |event| %>
-  <%= event.location %> <br>
+<% @created_events.each do |event| %>
+  <%= link_to event.location, event_path(event) %> <br>
 <% end %>
 
+<h2>Previously attended Events</h2>
+<% if @prev_events.any? %>
+  <% @prev_events.each do |event| %>
+    <%= event.location %><br>
+  <% end %>
+<% end %>
+
+<h2>Upcoming events</h2>
+<% if @upcoming_events.any? %>
+  <% @upcoming_events.each do |event| %>
+    <%= event.location %><br>
+  <% end %>
+<% end %>
+
+<br>
 <%= link_to 'Sign out', sign_out_path, :method => :delete %>

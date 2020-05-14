@@ -4,6 +4,8 @@ Rails.application.routes.draw do
 resources :users, only:[:new, :create, :show]
 resources :events, only:[:new, :create, :show, :index]
 
+post 'events/:id', to: 'events#attend'
+
 get    'sessions/new'
 get    'sessions/create'
 

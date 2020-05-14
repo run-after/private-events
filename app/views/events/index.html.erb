@@ -1,4 +1,8 @@
-<h1>All Events</h1>
-<% @events.each do |event| %>
-  <%= event.location %><br>
+<h2>Past Events</h2>
+<% @prev_events.each do |event| %>
+  <%= link_to event.location, event_path(event) %><br>
+<% end %>
+<h2>Future Events</h2>
+<% @upcoming_events.each do |event| %>
+  <%= link_to event.location, event_path(event) %><br>
 <% end %>

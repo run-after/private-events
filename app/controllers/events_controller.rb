@@ -18,7 +18,14 @@ class EventsController < ApplicationController
   end
 
   def index
-    @events = Event.all
+    @prev_events = Event.past(Date.today)
+    @upcoming_events = Event.upcoming(Date.today)
+    
+  end
+
+  def attend
+    Event.find(params[:id]).attendees << User.find(params[:user])
+    redirect_to event_path(params[:id])
   end
 
   private
