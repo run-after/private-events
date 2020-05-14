@@ -7,6 +7,6 @@
   <%= attendee.name %><br>
 
 <% end %>
-<br>
+
 <%= link_to "I want to attend", event_path(@event, :user => session[:id]), method: :post %>
 

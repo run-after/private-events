@@ -1,8 +1,8 @@
 class CreateInvitations < ActiveRecord::Migration[5.2]
   def change
     create_table :invitations do |t|
-      t.references :attendee, foreign_key: { to_table: :users }
-      t.references :attended_event, foreign_key: { to_table: :events }
+      t.references :invitee, foreign_key: { to_table: :users }
+      t.references :invited_event, foreign_key: { to_table: :users }
 
       t.timestamps
     end
