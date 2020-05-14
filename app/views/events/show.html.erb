@@ -1,12 +1,15 @@
 <h1>Event: <%= @event.location %></h1>
 <h2>Creator: </h1>
 <%= User.find(@event.creator_id).name %>
+
 <h2>Attendees:</h2>
 <% @event.attendees.each do |attendee| %>
-
   <%= attendee.name %><br>
-
 <% end %>
+<br>
+<% if User.find(session[:id]).invited_events.include?(Event.find(@event.id)) && User.find(session[:id]).attended_events.exclude?(Event.find(@event.id))%>
 
 <%= link_to "I want to attend", event_path(@event, :user => session[:id]), method: :post %>
-
+<% else %>
+<%= link_to "Invite a friend", invitations_new_path(:invited_event => @event.location)%>
+<% end %>

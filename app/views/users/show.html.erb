@@ -16,9 +16,9 @@
     <%= event.location %><br>
   <% end %>
 <% end %>
-
-<h2>Pending Invitations</h2>
-
-
-<br>
-<%= link_to 'Sign out', sign_out_path, :method => :delete %>
+<% if @invites.any?%>
+  <h2>Pending Invitations</h2>
+    <% @invites.each do |invite| %>
+      <%= link_to "#{invite.location}", event_path(invite) %>
+    <% end %>
+<% end %>

@@ -17,6 +17,7 @@ class UsersController < ApplicationController
     @created_events = Event.where(creator_id: current_user.id)
     @prev_events = current_user.prev_events
     @upcoming_events = current_user.upcoming_events
+    @invites = current_user.invited_events
   end
 
   private

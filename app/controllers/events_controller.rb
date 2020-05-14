@@ -25,7 +25,13 @@ class EventsController < ApplicationController
 
   def attend
     Event.find(params[:id]).attendees << User.find(params[:user])
+    invitation = Invitation.find_by(invitee_id: params[:user], invited_event_id: params[:id])
+    invitation.destroy
     redirect_to event_path(params[:id])
+  end
+
+  def invite
+    @invited = User.find_by(name: params[:name])
   end
 
   private

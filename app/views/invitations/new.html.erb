@@ -1,0 +1,9 @@
+<h1>Invite a friend</h1>
+
+<%= form_for :invite do |f| %>
+  <%= f.label :invitee %><br>
+  <%= f.text_field :invitee %><br>
+  <%= f.label :invited_event %><br>
+  <%= f.text_field :invited_event, value: params[:invited_event] %>
+  <%= f.submit "Invite"%>
+<% end %>
